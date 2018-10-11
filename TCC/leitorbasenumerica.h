@@ -37,7 +37,7 @@ public:
         int stimuli = m_cabecalho.size();
         int nonzeros = numberOfOnes;
         
-        
+   /*     
         cout<<"m_transacoes"<<endl;
         for ( std::vector<std::vector<int>>::size_type i = 0; i < m_transacoes.size(); i++ ){
             for ( std::vector<int>::size_type j = 0; j < m_transacoes[i].size(); j++ ){
@@ -50,7 +50,7 @@ public:
         for(auto elem : m_cabecalho){
             std::cout << elem.first << " " << elem.second << "\n";
            }
-        
+    */    
         cusp::coo_matrix<int, float, cusp::device_memory> sparse_matrix(subjects,stimuli,nonzeros);
 
         int i = 0;

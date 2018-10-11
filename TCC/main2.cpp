@@ -21,9 +21,7 @@ int main(void)
     //cusp::print(A);
     //cout << A.num_cols << A.num_rows ;A.column_indices A.num_entries A.row_indices
         
-    
-
-    
+        
     //Fr = A.row_indices;
     // define array container types
     //typedef cusp::array1d<float, cusp::device_memory> Array;
@@ -37,7 +35,9 @@ int main(void)
     for(int i = 0; i < A.num_entries; i++) {
         aux[i] = 0;
     }
-        cusp::array1d<float,cusp::device_memory> Fr(A.num_rows);
+    
+        
+    cusp::array1d<float,cusp::device_memory> Fr(A.num_rows);
     for(int i = 0; i < A.num_entries; i++) {
         if(aux[i] == 0) {
             int count = 0;
@@ -46,11 +46,13 @@ int main(void)
                     count += 1;
                     aux[j] = 1;
                 }
-            cout << A[i] << " occurs " << count << " times" << endl;
+            cout << A.values[i] << " occurs " << count << " times" << endl;
+            
         }
     }
         
-    cusp::print(Fr);
+    //cusp::print(Fr);
+    //cusp::print(aux);
     
     for (int i = 0; i < A.num_entries ; i++){
         
