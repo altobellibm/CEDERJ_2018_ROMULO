@@ -6,6 +6,8 @@
 #include <cusp/convert.h>
 #include <cusp/array2d.h>
 #include <cusp/multiply.h>
+#include <cusp/lapack/lapack.h>
+#include <cusp/convert.h>
 
 #undef NDEBUG
 #include <assert.h>
@@ -146,18 +148,32 @@ int main(int argc, char* argv[]){
     cusp::multiply(F,Dci,M2);
     cusp::multiply(M1,M2,M);
     
-    cusp::print(M);
+    cusp::array1d<float,cusp::device_memory> eigvals;
+    cusp::array2d<float,cusp::device_memory> eigvecs;
     
-    time_t start,end;
-    time (&start);
+    cusp::array2d<float,cusp::device_memory> M_dense;
+    
+    cusp::convert(M,M_dense);
+    
+    //cusp::print(M_dense);
+    
+    cusp::lapack::syev(M_dense,eigvals,eigvecs);
+    
+    cusp::print(eigvals);
+    cusp::print(eigvecs);
+
+    
+    //time_t start,end;
+    //time (&start);
     
     //contigency table
-    std::cout << "start Dual Scaling " << endl;
+    //std::cout << "start Dual Scaling " << endl;
+    
 //    ds::dual_scaling(mcd(dado.getMatrix()), x_normed, y_normed, x_projected, y_projected, rho, delta, fc, fr, LIMITE_INFERIOR_DELTA);
 
-    time (&end);
-    double dif = difftime (end,start);
-    std::cout << "Elasped time is " << dif << endl;
+    //time (&end);
+    //double dif = difftime (end,start);
+    //std::cout << "Elasped time is " << dif << endl;
 
     // dominance_data
 /*
