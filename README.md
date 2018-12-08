@@ -1,6 +1,6 @@
 
 # CEDERJ_2018_ROMULO
-<hr>
+
 
 USO DA BIBLIOTECA CUSP EM CUDA PARA IMPLEMENTAÇÃO DO ALGORITMO DUAL SCALING EM DADOS CATEGÓRICOS MULTIVARIADOS
 
@@ -19,7 +19,7 @@ Cusp para facilitar a implementação. Posteriormente são feitos testes de temp
 forma sequencial a fim de validar a implementação proposta. Por fim, algumas ideias para trabalhos futuros são apresentadas 
 para dar continuidade a este estudo.
 
-<hr>
+
 
 ## Bibliotecas
 
@@ -27,7 +27,7 @@ para dar continuidade a este estudo.
 * [Tensorflow](https://www.tensorflow.org/install/)
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 
-<hr>
+
 
 ## Compiladores
 
